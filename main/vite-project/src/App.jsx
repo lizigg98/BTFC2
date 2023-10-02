@@ -6,13 +6,13 @@ function App() {
   useEffect(() => {
     // Set lại giá trị thời gian sau 5s
     const timerId = setTimeout(() => {
-      setTime(5);
+      setTime(time + 5);
     }, 5000);
 
     return () => {
       clearTimeout(timerId); // Xóa timeout nếu component unmount
     };
-  }, []); // Chỉ chạy một lần khi component mount
+  }, [time]); // Chỉ chạy một lần khi component mount
 
   return <div>{time}</div>;
 }
